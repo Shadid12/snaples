@@ -85,7 +85,7 @@ contract Campaign {
       ) {
         return (
           minimumContribution,
-          this.balance,
+          address(this).balance,
           requests.length,
           contributersCount,
           manager
