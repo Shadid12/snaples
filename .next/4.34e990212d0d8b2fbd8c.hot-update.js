@@ -1,4 +1,49 @@
-webpackHotUpdate(5,{
+webpackHotUpdate(4,{
+
+/***/ "./db/db.js":
+false,
+
+/***/ "./node_modules/@firebase/app/dist/index.cjs.js":
+false,
+
+/***/ "./node_modules/@firebase/auth/dist/auth.esm.js":
+false,
+
+/***/ "./node_modules/@firebase/database/dist/index.cjs.js":
+false,
+
+/***/ "./node_modules/@firebase/firestore/dist/index.cjs.js":
+false,
+
+/***/ "./node_modules/@firebase/functions/dist/index.cjs.js":
+false,
+
+/***/ "./node_modules/@firebase/logger/dist/index.esm.js":
+false,
+
+/***/ "./node_modules/@firebase/messaging/dist/index.esm.js":
+false,
+
+/***/ "./node_modules/@firebase/polyfill/dist/index.esm.js":
+false,
+
+/***/ "./node_modules/@firebase/storage/dist/index.esm.js":
+false,
+
+/***/ "./node_modules/@firebase/util/dist/index.cjs.js":
+false,
+
+/***/ "./node_modules/@firebase/webchannel-wrapper/dist/index.js":
+false,
+
+/***/ "./node_modules/firebase/dist/index.cjs.js":
+false,
+
+/***/ "./node_modules/tslib/tslib.es6.js":
+false,
+
+/***/ "./node_modules/whatwg-fetch/fetch.js":
+false,
 
 /***/ "./pages/campaigns/new.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -12,7 +57,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__etherium_web3__ = __webpack_require__("./etherium/web3.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__etherium_factory__ = __webpack_require__("./etherium/factory.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__db_db__ = __webpack_require__("./db/db.js");
 
 var _jsxFileName = "C:\\Users\\shadid\\Documents\\shadid\\snaples\\pages\\campaigns\\new.js";
 
@@ -31,7 +75,6 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 
 
 
@@ -71,6 +114,7 @@ function (_Component) {
         var _value = _asyncToGenerator(
         /*#__PURE__*/
         __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee(event) {
+          var accounts;
           return __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
             while (1) {
               switch (_context.prev = _context.next) {
@@ -80,33 +124,44 @@ function (_Component) {
                   _this.setState({
                     loading: true,
                     errorMessage: ''
-                  }); // try {
-                  //     const accounts = await web3.eth.getAccounts();
-                  //     console.log('---> Accounts', accounts);
-                  //     await factory.methods
-                  //       .createCampaign(this.state.minimumContribution, this.state.description)
-                  //       .send({
-                  //         from: accounts[0]
-                  //       });
-                  //   } catch (err) {
-                  //     this.setState({ errorMessage: err.message });
-                  // }
+                  });
 
+                  _context.prev = 2;
+                  _context.next = 5;
+                  return __WEBPACK_IMPORTED_MODULE_2__etherium_web3__["a" /* default */].eth.getAccounts();
 
-                  _context.next = 4;
-                  return Object(__WEBPACK_IMPORTED_MODULE_4__db_db__["a" /* createCampaign */])(_this.state.address, _this.state.description);
+                case 5:
+                  accounts = _context.sent;
+                  _context.next = 8;
+                  return __WEBPACK_IMPORTED_MODULE_3__etherium_factory__["a" /* default */].methods.createCampaign(_this.state.minimumContribution, _this.state.description).send({
+                    from: accounts[0]
+                  });
 
-                case 4:
+                case 8:
+                  _context.next = 13;
+                  break;
+
+                case 10:
+                  _context.prev = 10;
+                  _context.t0 = _context["catch"](2);
+
+                  _this.setState({
+                    errorMessage: _context.t0.message
+                  });
+
+                case 13:
+                  console.log('Contract Created');
+
                   _this.setState({
                     loading: false
                   });
 
-                case 5:
+                case 15:
                 case "end":
                   return _context.stop();
               }
             }
-          }, _callee, this);
+          }, _callee, this, [[2, 10]]);
         }));
 
         return function value(_x) {
@@ -124,12 +179,12 @@ function (_Component) {
       return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 36
+          lineNumber: 34
         }
       }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("label", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 37
+          lineNumber: 35
         }
       }, "Minimum Contribution"), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("input", {
         value: this.state.minimumContribution,
@@ -140,17 +195,17 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 38
+          lineNumber: 36
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 41
+          lineNumber: 39
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("label", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 42
+          lineNumber: 40
         }
       }, "Description"), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("input", {
         value: this.state.description,
@@ -161,18 +216,18 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 43
+          lineNumber: 41
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 46
+          lineNumber: 44
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("button", {
         onClick: this.createCampaing,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 47
+          lineNumber: 45
         }
       }, "Submit"));
     }
@@ -205,4 +260,4 @@ function (_Component) {
 /***/ })
 
 })
-//# sourceMappingURL=5.2c9a11dc86b3f89fdea7.hot-update.js.map
+//# sourceMappingURL=4.34e990212d0d8b2fbd8c.hot-update.js.map

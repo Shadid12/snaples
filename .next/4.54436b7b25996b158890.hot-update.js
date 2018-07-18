@@ -1,4 +1,18 @@
-webpackHotUpdate(5,{
+webpackHotUpdate(4,{
+
+/***/ "./etherium/factory.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__web3__ = __webpack_require__("./etherium/web3.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__build_CampaignFactory_json__ = __webpack_require__("./etherium/build/CampaignFactory.json");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__build_CampaignFactory_json___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__build_CampaignFactory_json__);
+
+
+var instance = new __WEBPACK_IMPORTED_MODULE_0__web3__["a" /* default */].eth.Contract(JSON.parse(__WEBPACK_IMPORTED_MODULE_1__build_CampaignFactory_json___default.a.interface), '0xafB4D2c8066F89DA6A432bed7f335AE38Aa89089');
+/* harmony default export */ __webpack_exports__["a"] = (instance);
+
+/***/ }),
 
 /***/ "./pages/campaigns/new.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -71,6 +85,7 @@ function (_Component) {
         var _value = _asyncToGenerator(
         /*#__PURE__*/
         __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.mark(function _callee(event) {
+          var accounts;
           return __WEBPACK_IMPORTED_MODULE_0__babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
             while (1) {
               switch (_context.prev = _context.next) {
@@ -80,33 +95,42 @@ function (_Component) {
                   _this.setState({
                     loading: true,
                     errorMessage: ''
-                  }); // try {
-                  //     const accounts = await web3.eth.getAccounts();
-                  //     console.log('---> Accounts', accounts);
-                  //     await factory.methods
-                  //       .createCampaign(this.state.minimumContribution, this.state.description)
-                  //       .send({
-                  //         from: accounts[0]
-                  //       });
-                  //   } catch (err) {
-                  //     this.setState({ errorMessage: err.message });
-                  // }
+                  });
 
+                  _context.prev = 2;
+                  _context.next = 5;
+                  return __WEBPACK_IMPORTED_MODULE_2__etherium_web3__["a" /* default */].eth.getAccounts();
 
-                  _context.next = 4;
-                  return Object(__WEBPACK_IMPORTED_MODULE_4__db_db__["a" /* createCampaign */])('someHash Address', _this.state.description);
+                case 5:
+                  accounts = _context.sent;
+                  _context.next = 8;
+                  return __WEBPACK_IMPORTED_MODULE_3__etherium_factory__["a" /* default */].methods.createCampaign(_this.state.minimumContribution, _this.state.description).send({
+                    from: accounts[0]
+                  });
 
-                case 4:
+                case 8:
+                  _context.next = 13;
+                  break;
+
+                case 10:
+                  _context.prev = 10;
+                  _context.t0 = _context["catch"](2);
+
+                  _this.setState({
+                    errorMessage: _context.t0.message
+                  });
+
+                case 13:
                   _this.setState({
                     loading: false
                   });
 
-                case 5:
+                case 14:
                 case "end":
                   return _context.stop();
               }
             }
-          }, _callee, this);
+          }, _callee, this, [[2, 10]]);
         }));
 
         return function value(_x) {
@@ -124,12 +148,12 @@ function (_Component) {
       return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 36
+          lineNumber: 34
         }
       }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("label", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 37
+          lineNumber: 35
         }
       }, "Minimum Contribution"), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("input", {
         value: this.state.minimumContribution,
@@ -140,17 +164,17 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 38
+          lineNumber: 36
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 41
+          lineNumber: 39
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("label", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 42
+          lineNumber: 40
         }
       }, "Description"), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("input", {
         value: this.state.description,
@@ -161,18 +185,18 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 43
+          lineNumber: 41
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 46
+          lineNumber: 44
         }
       }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("button", {
         onClick: this.createCampaing,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 47
+          lineNumber: 45
         }
       }, "Submit"));
     }
@@ -205,4 +229,4 @@ function (_Component) {
 /***/ })
 
 })
-//# sourceMappingURL=5.10e5f540df82711a8dbf.hot-update.js.map
+//# sourceMappingURL=4.54436b7b25996b158890.hot-update.js.map
